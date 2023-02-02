@@ -8,19 +8,16 @@ const array= [
   {id:5,name:"Saqib", city:"Karachi"},
   {id:6,name:"Farhan", city:"Islamabad"}
 ]
-
-
   function func(array,key){
       return array.reduce((emptyObject, element)=>{                
           if((element[key] in emptyObject)===false) {  /*check if a key is already exist or does not exist in object_acumulator */
-              emptyObject[element[key]] = emptyObject[element[key]]   /* making key of object */ 
-              emptyObject[element[key]] = [];                         /* initilizing key_value to empty list*/ 
+            emptyObject[element[key]] = emptyObject[element[key]]   /* making key of object */ 
+            emptyObject[element[key]] = [];                         /* initilizing key_value to empty list*/ 
           }   
           emptyObject[element[key]].push(element);     /* adding array_objects into the list of keys */
           return emptyObject;
       },{})
   }
-
   console.log('\nGroupByCity:\n\n', func(array,'city'),'\n\n');
 
 
