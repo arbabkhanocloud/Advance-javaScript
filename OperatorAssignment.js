@@ -2,7 +2,7 @@
 
 const array  = ["OR",["<","a","b"],["AND",["==","c","d"],["!=","e","f"]]]
 
-const flatedArray = array.flat(Infinity,); //removing nested arrays
+const flatedArray = array.flat(Infinity); //removing nested arrays
 let length = flatedArray.length;
 let i = length-1;
 console.log('\n');
