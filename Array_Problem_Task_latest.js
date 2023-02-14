@@ -9,16 +9,16 @@ array.forEach((element) => {
     newArray.push(element);
   } else {
     const object = { ...element };
-    newArray.push(recursiveFunction(object)); // Passing array_objects copy to recursive function
+    newArray.push(recursiveFunction(object));
   }
 });
 // recursive function
 function recursiveFunction(arrayobject) {
-  if ((arrayobject !== undefined) && (arrayobject.next !== null)) {
-    const found = array.find((element) => element.id === arrayobject.next); //Finding the object in array of having 'id' equal to current object's 'next' value 
-    arrayobject.value = { ...found }; //assigning next object of array to current array_object's value
+  if (arrayobject !== undefined && arrayobject.next !== null) {
+    const found = array.find((element) => element.id === arrayobject.next); //Finding the object in array of having 'id' equal to current object's 'next' value
+    arrayobject.value = { ...found };
     recursiveFunction(arrayobject.value);
-  } 
+  }
   return arrayobject;
 }
 console.log("\nOutput Array:  \n", newArray, "\n\n");
