@@ -1,4 +1,3 @@
-//*****************With Map Function */
 const array = [
   { id: 1, name: "Bilal", city: "Lahore" },
   { id: 1, name: "Bilal", city: "Lahore" },
@@ -7,16 +6,15 @@ const array = [
   { id: 5, name: "Saqib", city: "Karachi" },
   { id: 6, name: "Farhan", city: "Islamabad" },
 ];
-
 function func(array, key) {
   const emptyObject = {};
-  array.map((element) => {
+  array.forEach((element) => {
     const elementKey = element[key];
     if (!(elementKey in emptyObject)) {
       /*check if a key is already exist or does not exist in object_acumulator */
       emptyObject[elementKey] = []; /* initilizing key_value to empty list*/
     }
-    emptyObject[elementKey].push(element);
+    emptyObject[element[key]].push(element);
   });
   return emptyObject;
 }
