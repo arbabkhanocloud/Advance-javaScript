@@ -3,13 +3,13 @@ const array = [
   ["<", "a", "b"],
   ["AND", ["==", "c", "d"], ["!=", "e", "f"]],
 ];
-const recursiveFunction = function () {
+const func = function () {
   const newArray = [];
-  return function func(element) {
+  return function recursiveFunction(element) {
     if (Array.isArray(element)) {
       for (let i = 0; i < element.length; i++) {
         if (Array.isArray(element[i])) {
-          newArray.push(func(element[i])); //Checking if nested element is array or not//
+          newArray.push(recursiveFunction(element[i])); //Checking if nested element is array or not//
         } else {
           newArray.push(element[i]); /// if next element is not array then simply push it into the newArray
         }
@@ -39,5 +39,5 @@ const recursiveFunction = function () {
     }
   };
 };
-const infixExpression = recursiveFunction();
+const infixExpression = func();
 console.log("infix Expression is:  ", infixExpression(array));
